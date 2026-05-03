@@ -37,3 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 tw-animate.css
 npx shadcn@latest add @react-bits/LightRays-JS-CSS
+npx -y @posthog/wizard@latest
