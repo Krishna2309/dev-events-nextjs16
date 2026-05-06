@@ -119,12 +119,13 @@ eventSchema.pre<IEvent>("save", function (next) {
 
   // Normalize time to HH:mm format.
   if (this.time) {
-    const timeMatch = this.time.match(/(\d{1,2}):(\d{2})/);
-    if (timeMatch) {
-      const hours = timeMatch[1].padStart(2, "0");
-      const minutes = timeMatch[2];
-      this.time = `${hours}:${minutes}`;
+    const timeMatch = this.time.match(/^([01]?\d|2[0-3]):([0-5]\d)$/);
+    if (!timeMatch) {
+      return next(new Error("Time must be in HH:mm format"));
     }
+    const [, hoursRaw, minutes] = timeMatch;
+    const hours = hoursRaw.padStart(2, "0");
+    this.time = `${hours}:${minutes}`;
   }
 
   next();
