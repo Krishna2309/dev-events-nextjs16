@@ -6,6 +6,8 @@ import { cacheLife } from "next/cache";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
+import BookEvent from "./BookEvent";
+import EventCard from "./EventCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
